@@ -28,8 +28,15 @@ let result4 = none([4, -5, 7, -1], function(n) {
 console.log(result4);   // false
 *******************************************************************************/
 
-let none = function() {
+let none = function(array, cb) {
+    let count = 0;
+    array.forEach(function (el) {
+        if (cb(el) == true) {
+            count++;
+        }
+    });
 
+    return count === 0;
 };
 
 
